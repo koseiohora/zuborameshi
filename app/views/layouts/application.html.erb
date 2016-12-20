@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ずぼら飯.com</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <div class="heading">
+      <h1 class="title">ずぼら飯.com</h1>
+      <p class="heading-sentence">３工程・５分以内の簡単ご飯♪</p>
+    </div>
+
+      <ul class="navbar">
+        <li><a href="/recipes">HOME</a></li>
+        <li><a href="/recipes/about">ずぼら飯とは</a></li>
+        <li>ジャンル</li>
+        <li>ランキング</li>
+        <% if user_signed_in? %>
+          <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><a class="post" href="/recipes/new">投稿する</a></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+        <% end %>
+      </ul>
+  </header>
+
+  <%= yield %>
+
+  <footer>
+    <p>
+      Copyright ずぼら飯.com 2016
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+}
+
+.heading-sentence {
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+}
+
+ul li{
+  list-style: none;
+  padding: 10px;
+}
+

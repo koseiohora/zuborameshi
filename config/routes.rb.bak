@@ -1,0 +1,17 @@
+Rails.application.routes.draw do
+  devise_for :users
+  root 'meshis#index'
+  #get 'meshis' => 'meshis#index'
+  #get 'meshis/new' => 'meshis#new'
+  #post 'meshis' => 'meshis#create'
+  #delete 'meshis/:id' => 'meshis#destroy'
+  #patch 'meshis/:id' => 'meshis#update'
+  #get 'meshis/:id/edit' => 'meshis#edit'
+  #get 'users/:id' => 'users#show'
+  #get 'meshis/:id' => 'meshis#show'
+  # get 'meshis/about' => 'meshis#about'
+  resources :meshis do
+    resources :comments, only: [:create]
+  end
+  resources :users, only: [:show]
+end
