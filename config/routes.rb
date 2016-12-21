@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # get 'recipes/about' => 'recipes#about'
   resources :recipes do
     resources :comments, only: [:create]
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy], shallow: true
   end
 
   resources :users, only: [:show]
