@@ -21,9 +21,10 @@
       </div>
     <%end %>
 
-
-
     <span>投稿者 </span><%= recipe.user.nickname %>
+
+    <%= render partial: "like", locals: { recipe: recipe } %>
+
   <% end %>
 
   <%= paginate(@recipes) %>
