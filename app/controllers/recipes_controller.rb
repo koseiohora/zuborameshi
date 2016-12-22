@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
   end
 
   def ranking
+    @recipes = Recipe.limit(5).order("likes_count DESC")
   end
 
   private
