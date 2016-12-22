@@ -17,7 +17,7 @@
         <li><a href="/recipes">HOME</a></li>
         <li><a href="/recipes/about">ずぼら飯とは</a></li>
         <li>ジャンル</li>
-        <li>ランキング</li>
+        <li><a href="/recipes/ranking">ランキング</a></li>
         <% if user_signed_in? %>
           <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

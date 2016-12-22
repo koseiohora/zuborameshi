@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #get 'users/:id' => 'users#show'
   #get 'recipes/:id' => 'recipes
   get 'recipes/about' => 'recipes#about'
+  get 'recipes/ranking' => 'recipes#ranking'
   resources :recipes do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy], shallow: true
