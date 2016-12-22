@@ -37,6 +37,10 @@ class RecipesController < ApplicationController
     @comments = @recipe.comments.includes(:user)
   end
 
+  def ranking
+    @recipes = Recipe.limit(5).order("likes_count DESC")
+  end
+
   private
   def recipe_params
     params.permit(:title, :image, :text)
