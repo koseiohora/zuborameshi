@@ -7,6 +7,8 @@ class RecipesController < ApplicationController
   end
 
   def new
+    # form_forにした場合
+    # @recipe = Recipe.new
   end
 
   def create
@@ -43,6 +45,8 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
+    # form_forにした場合
+    # params.require(recipe).permit(:title, :image, :text)
     params.permit(:title, :image, :text)
   end
 
