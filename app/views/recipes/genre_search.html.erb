@@ -1,0 +1,6 @@
+<% @recipes.each do |recipe| %>
+  <h2><%= recipe.title %></h2>
+  <%= image_tag recipe.image %>
+  <p><%= recipe.text %></p>
+  <span>投稿者 </span><%= recipe.user.nickname %>
+<% end %>
