@@ -11,9 +11,15 @@ Rails.application.routes.draw do
   #get 'recipes/:id' => 'recipes
   get 'recipes/about' => 'recipes#about'
   get 'recipes/ranking' => 'recipes#ranking'
+  get 'recipes/genre' => 'recipes#genre'
+  get 'recipes/genre_search' => 'recipes#genre_search'
   resources :recipes do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy], shallow: true
+
+    collection do
+      get 'search'
+    end
   end
 
   resources :users, only: [:show]

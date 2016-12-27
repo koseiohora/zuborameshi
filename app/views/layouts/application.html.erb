@@ -16,7 +16,7 @@
       <ul class="navbar">
         <li><a href="/recipes">HOME</a></li>
         <li><a href="/recipes/about">ずぼら飯とは</a></li>
-        <li>ジャンル</li>
+        <li><a href ="/recipes/genre">ジャンル</a></li>
         <li><a href="/recipes/ranking">ランキング</a></li>
         <% if user_signed_in? %>
           <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
@@ -26,6 +26,11 @@
           <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
           <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
         <% end %>
+        <%= form_tag('/recipes/search', method: :get) do %>
+          <input class="search__query" name="keyword" placeholder="冷蔵庫検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+        <% end %>
+        <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+        </form>
       </ul>
   </header>
 

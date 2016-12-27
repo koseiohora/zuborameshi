@@ -16,6 +16,8 @@
 
   <span>投稿者 </span><%= @recipe.user.nickname %>
 
+  <%= image_tag @recipe.image.thumb.url %>
+
   <div class="container">
     <% if current_user %>
       <%= form_tag("/recipes/#{@recipe.id}/comments", method: :post) do %>
