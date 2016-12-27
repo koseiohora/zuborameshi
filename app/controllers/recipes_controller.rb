@@ -7,10 +7,18 @@ class RecipesController < ApplicationController
   end
 
   def new
+    # form_forにした場合
+    # @recipe = Recipe.new
   end
 
   def create
-    Recipe.create(title: recipe_params[:title], image: recipe_params[:image], text: recipe_params[:text], user_id: current_user.id)
+    Recipe.create(image: params[:image], title: params[:recipe][:title],text: params[:recipe][:text], foods: params[:recipe][:foods], user_id: current_user.id, genre: params.require(:sample_form).permit(genre: []))[:genre]
+
+    # unless params[:imagename].nil? then
+    #   image = Image.new
+    #   image.imagename = params[:imagename]
+    #   image.save # ここでアップロード処理とDB保存処理が走る
+    # end
   end
 
   def destroy
@@ -41,9 +49,22 @@ class RecipesController < ApplicationController
     @recipes = Recipe.limit(5).order("likes_count DESC")
   end
 
+  def search
+    @recipes = Recipe.where('foods LIKE(?)', "%#{params[:keyword]}%").limit(5)
+  end
+
+  def genre
+  end
+
+  def genre_search
+    @recipes = Recipe.where('genre LIKE(?)', "%#{params[:keyword]}%").limit(5)
+  end
+
   private
   def recipe_params
-    params.permit(:title, :image, :text)
+    # form_forにした場合
+    # params.require(recipe).permit(:title, :image, :text)
+    params.permit(:title, :image, :text, :foods)
   end
 
   def move_to_index

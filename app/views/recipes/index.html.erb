@@ -2,6 +2,7 @@
   <% @recipes.each do |recipe| %>
     <h2><%= recipe.title %></h2>
     <p><%= recipe.text %></p>
+    <%= image_tag recipe.image %>
 
     <li>
       <%= link_to '詳細', "/recipes/#{recipe.id}", method: :get %>
@@ -22,8 +23,6 @@
     <%end %>
 
     <span>投稿者 </span><%= recipe.user.nickname %>
-
-    <%= render partial: "like", locals: { recipe: recipe } %>
 
   <% end %>
 

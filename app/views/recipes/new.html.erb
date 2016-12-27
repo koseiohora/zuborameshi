@@ -1,11 +1,13 @@
-<div class="contents row">
-  <%= form_tag('/recipes', method: :post) do %>
-    <h3>
-      投稿する
-    </h3>
-    <input placeholder="料理名" type="text" name="title">
-    <input placeholder="Image Url" type="text" name="image">
-    <textarea cols="30" name="text" placeholder="recipe" rows="10"></textarea>
-    <input type="submit" value="SENT">
+<%= form_tag({action: :create}, multipart: true) do %>
+  <%= file_field_tag  :image %>
+  <%= text_field :recipe, :title %>
+  <%= text_field :recipe, :text %>
+  <%= text_field :recipe, :foods %>
+
+  <% ["ご飯","トースト","パスタ","お餅","その他"].each do |item| %>
+    <label>
+      <%= check_box_tag 'sample_form[genre][]', item %>
+      <%= item %>
   <% end %>
-</div>
+  <%= submit_tag "投稿する"  %>
+<% end %>

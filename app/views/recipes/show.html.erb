@@ -16,6 +16,8 @@
 
   <span>投稿者 </span><%= @recipe.user.nickname %>
 
+  <%= image_tag @recipe.image.thumb.url %>
+
   <div class="container">
     <% if current_user %>
       <%= form_tag("/recipes/#{@recipe.id}/comments", method: :post) do %>
@@ -23,6 +25,8 @@
         <input type="submit" value="SENT">
       <% end %>
     <% end %>
+
+  <%= render partial: "like", locals: { recipe: @recipe } %>
 
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
