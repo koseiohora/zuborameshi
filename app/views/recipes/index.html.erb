@@ -1,3 +1,11 @@
+ <div class="search clearfix">
+  <%= form_tag('/recipes/search', method: :get) do %>
+    <input class="search__query" name="keyword" placeholder="冷蔵庫検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><%= image_tag("search_btn.png",:size=>"30x30") %><i class="icon-search"></i></button></input>
+  <% end %>
+  <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+  </form>
+  </div>
+
 <div class="contents row" >
   <% @recipes.each do |recipe| %>
     <h2><%= recipe.title %></h2>

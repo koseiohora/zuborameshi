@@ -1,17 +1,69 @@
-.title {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.heading-sentence {
+html {
+  overflow: auto;
+}
+
+body {
+  background-color: #FFDBC9;
+  overflow: hidden;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #BF360C;
+  font-size: 40px;
+}
+
+.title {
+  margin-top: 10px;
   text-align: center;
 }
 
 .navbar {
+  margin-top: 15px;
   display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #BF360C;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 ul li{
+  margin-left: 20px;
+  margin-bottom: -5px;
+  margin-top: -5px;
   list-style: none;
   padding: 10px;
+}
+
+.search {
+  float: right;
+  margin-right: 20px;
+}
+
+input {
+  width: 150px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+button {
+  background-color: transparent;
+  border-style: none;
+  vertical-align: middle;
+}
+
+footer {
+  text-align: center;
 }
 

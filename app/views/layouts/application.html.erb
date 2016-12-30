@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ずぼら飯.com</title>
+  <title>３工程・５分以内の簡単ご飯♪ ずぼら飯.com</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
-    <div class="heading">
-      <h1 class="title">ずぼら飯.com</h1>
-      <p class="heading-sentence">３工程・５分以内の簡単ご飯♪</p>
-    </div>
-
+      <h1 class="title"><a href="/recipes">ずぼら飯.com</a></h1>
       <ul class="navbar">
-        <li><a href="/recipes">HOME</a></li>
-        <li><a href="/recipes/about">ずぼら飯とは</a></li>
         <li><a href ="/recipes/genre">ジャンル</a></li>
         <li><a href="/recipes/ranking">ランキング</a></li>
         <% if user_signed_in? %>
@@ -26,13 +20,16 @@
           <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
           <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
         <% end %>
-        <%= form_tag('/recipes/search', method: :get) do %>
-          <input class="search__query" name="keyword" placeholder="冷蔵庫検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
-        <% end %>
-        <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
-        </form>
       </ul>
   </header>
+
+ <!--  <div class="search clearfix">
+  <%= form_tag('/recipes/search', method: :get) do %>
+    <input class="search__query" name="keyword" placeholder="冷蔵庫検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><%= image_tag("search_btn.png",:size=>"30x30") %><i class="icon-search"></i></button></input>
+  <% end %>
+  <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+  </form>
+  </div> -->
 
   <%= yield %>
 
