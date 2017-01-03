@@ -1,38 +1,36 @@
- <div class="search clearfix">
+<div class="search">
   <%= form_tag('/recipes/search', method: :get) do %>
-    <input class="search__query" name="keyword" placeholder="冷蔵庫検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><%= image_tag("search_btn.png",:size=>"30x30") %><i class="icon-search"></i></button></input>
+    <input class="search__query" name="keyword" placeholder=" 冷蔵庫検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><%= image_tag("search_btn.png",:size=>"50x50") %><i class="icon-search"></i></button></input>
   <% end %>
   <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
   </form>
-  </div>
-
-<div class="contents row" >
-  <% @recipes.each do |recipe| %>
-    <h2><%= recipe.title %></h2>
-    <p><%= recipe.text %></p>
-    <%= image_tag recipe.image %>
-
-    <li>
-      <%= link_to '詳細', "/recipes/#{recipe.id}", method: :get %>
-    </li>
-    <% if user_signed_in? && current_user.id == recipe.user_id %>
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '編集', "/recipes/#{recipe.id}/edit", method: :get %>
-          </li>
-
-          <li>
-              <%= link_to '削除', "/recipes/#{recipe.id}", method: :delete %>
-          </li>
-        </ul>
-      </div>
-    <%end %>
-
-    <span>投稿者 </span><%= recipe.user.nickname %>
-
-  <% end %>
-
-  <%= paginate(@recipes) %>
 </div>
+
+<% @recipes.each do |recipe| %>
+  <div class="posts">
+    <h2><%= recipe.title %></h2>
+    <p><%= recipe.foods %></p>
+    <li><%= link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get %></li>
+      <div class="img_user">
+        <%= image_tag recipe.image %>
+        <div class="more">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '編集', "/recipes/#{recipe.id}/edit", method: :get %></li>
+        <%end %>
+        </ul>
+        </div>
+
+        <div class="moremore">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '削除', "/recipes/#{recipe.id}", method: :delete %></li>
+        <%end %>
+        </ul>
+        </div>
+
+      <p>投稿者 <%= recipe.user.nickname %> さん</p>
+      </div>
+  </div>
+<% end %>
+<%= paginate(@recipes) %>
