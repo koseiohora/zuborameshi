@@ -20,6 +20,7 @@
       </div>
     <p>投稿者 <%= link_to @recipe.user.nickname, "/users/#{@recipe.user_id}" %> さん</p>
   </div>
+  <p>レシピ：<%= @recipe.text %></p>
 </div>
 
 <% if current_user %>

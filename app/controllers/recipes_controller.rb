@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id]).order("created_at DESC").page(params[:page]).per(4)
     @comments = @recipe.comments.includes(:user)
   end
 
@@ -50,14 +50,14 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.where('foods LIKE(?)', "%#{params[:keyword]}%").limit(5)
+    @recipes = Recipe.where('foods LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(4)
   end
 
   def genre
   end
 
   def genre_search
-    @recipes = Recipe.where('genre LIKE(?)', "%#{params[:keyword]}%").limit(5)
+    @recipes = Recipe.where('genre LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(4)
   end
 
   private

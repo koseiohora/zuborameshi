@@ -165,11 +165,50 @@ footer {
 .comments h3 {
   font-size: 25px;
   margin-top: 50px;
-  margin-left: 42%;
+  text-align: center;
 }
 
 .comments p {
   font-size: 20px;
   text-align: center;
   margin-top: 10px;
+}
+
+.comments a {
+  text-decoration: none;
+}
+
+.user h3 {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.user .posts {
+  margin-top: 30px;
+}
+
+.genre_search {
+  margin-top: 50px;
+  display: block;
+  width: 38%;
+  margin: 0 auto;
+}
+
+.genre_search input {
+  width: 300px;
+}
+
+.genre_search p {
+  margin-top: 30px;
+}
+
+.genre {
+  margin-top: -50px;
+}
+
+.genre_p {
+  margin-top: 30px;
+  font-size: 25px;
+  text-align: center;
 }
