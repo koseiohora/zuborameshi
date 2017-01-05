@@ -49,6 +49,7 @@ ul li{
 .search {
   float: right;
   margin-right: 20px;
+  margin-top: 10px;
 }
 
 input {
@@ -128,3 +129,47 @@ footer {
   margin-right: 60px;
 }
 
+.comment_text {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.like {
+  display: inline;
+  float: left;
+  margin-top: 20px;
+}
+
+.comment_text textarea {
+  width: 70%;
+  height: 70px;
+  font-size: 30px;
+  margin-top: 30px;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+.comment_text input {
+  font-size: 30px;
+  width: 10%;
+  height: 70px;
+  vertical-align: middle;
+  margin-top: 30px;
+}
+
+.like img {
+  width: 100px;
+  height: 100px;
+}
+
+.comments h3 {
+  font-size: 25px;
+  margin-top: 50px;
+  margin-left: 42%;
+}
+
+.comments p {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}

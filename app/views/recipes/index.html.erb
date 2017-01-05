@@ -29,7 +29,7 @@
         </ul>
         </div>
 
-      <p>投稿者 <%= recipe.user.nickname %> さん</p>
+      <p>投稿者 <%= link_to recipe.user.nickname, "/users/#{recipe.user_id}" %> さん</p>
       </div>
   </div>
 <% end %>
