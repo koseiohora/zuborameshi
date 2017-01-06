@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id]).order("created_at DESC").page(params[:page]).per(4)
+    @recipe = Recipe.find(params[:id])
     @comments = @recipe.comments.includes(:user)
   end
 
