@@ -1,8 +1,30 @@
-<h1>ずぼランキング</h1>
-
-<div class="contents row" >
-  <% @recipes.each do |recipe| %>
+<div class="gold">
+<h2><%= image_tag "gold.png" %>ずぼランキング<%= image_tag "gold.png" %></h2>
+</div>
+<div class="ranking">
+<% @recipes.each do |recipe| %>
+  <div class="posts">
     <h2><%= recipe.title %></h2>
-    <p><%= recipe.text %></p>
-  <% end %>
+    <p><%= recipe.foods %></p>
+    <li><%= link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get %></li>
+    <div class="img_user">
+      <%= image_tag recipe.image %>
+      <div class="more">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '編集', "/recipes/#{recipe.id}/edit", method: :get %></li>
+        <%end %>
+        </ul>
+       </div>
+      <div class="moremore">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '削除', "/recipes/#{recipe.id}", method: :delete %></li>
+        <%end %>
+        </ul>
+      </div>
+      <p>投稿者 <%= link_to recipe.user.nickname, "/users/#{recipe.user_id}" %> さん</p>
+    </div>
+  </div>
+<% end %>
 </div>
