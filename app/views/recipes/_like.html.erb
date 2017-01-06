@@ -1,23 +1,18 @@
+<div class="like">
 <% if user_signed_in? %>
-
   <% if recipe.like_user(current_user) %>
     <%= button_to like_path(recipe.id), method: :delete, id: "like-button", remote: true do %>
-      <%= image_tag("icon_red_heart.svg") %>
-      <span>
-        <%= recipe.likes_count %>
-      </span>
+      <%= image_tag("zuboine_before.png") %>
+      <span><%= recipe.likes_count %></span>
     <% end %>
   <% else %>
     <%= button_to recipe_likes_path(recipe), method: :post, id: "like-button", remote: true do %>
-      <%= image_tag("icon_heart.svg") %>
-      <span>
-        <%= recipe.likes_count %>
-      </span>
+      <%= image_tag("zuboine_before.png") %>
+      <span><%= recipe.likes_count %></span>
     <% end %>
   <% end %>
 <% else %>
-  <%= image_tag("icon_heart.svg") %>
-    <span>
-      <%= recipe.likes_count %>
-    </span>
+  <%= image_tag("zuboine_before.png") %>
+    <span><%= recipe.likes_count %></span>
 <% end %>
+</div>

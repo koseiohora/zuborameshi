@@ -1,43 +1,46 @@
-<div class="contents row" >
-  <% if user_signed_in? && current_user.id == @recipe.user_id %>
-    <div class="more">
-      <span><%= image_tag 'arrow_top.png' %></span>
-    <ul class="more_list">
-      <li>
-        <%= link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get %>
-      </li>
-
-      <li>
-        <%= link_to '削除', "/recipes/#{@recipe.id}", method: :delete %>
-      </li>
-    </ul>
-    </div>
-  <%end %>
-
-  <span>投稿者 </span><%= @recipe.user.nickname %>
-
-  <%= image_tag @recipe.image.thumb.url %>
-
-  <div class="container">
-    <% if current_user %>
-      <%= form_tag("/recipes/#{@recipe.id}/comments", method: :post) do %>
-        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-        <input type="submit" value="SENT">
+<div class="posts">
+  <h2><%= @recipe.title %></h2>
+  <p><%= @recipe.foods %></p>
+  <div class="img_user">
+    <%= image_tag @recipe.image %>
+    <% if user_signed_in? && current_user.id == @recipe.user_id %>
+      <div class="more">
+        <ul>
+          <li><%= link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get %></li>
+        </ul>
       <% end %>
-    <% end %>
+      </div>
 
-  <%= render partial: "like", locals: { recipe: @recipe } %>
-
-    <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% if @comments %>
-        <% @comments.each do |comment| %>
-          <p>
-            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-            <%= comment.text %>
-          </p>
-        <% end %>
-      <% end %>
-    </div>
+      <% if user_signed_in? && current_user.id == @recipe.user_id %>
+      <div class="moremore">
+        <ul>
+          <li><%= link_to '削除', "/recipes/#{@recipe.id}", method: :delete %></li>
+        </ul>
+      <%end %>
+      </div>
+    <p>投稿者 <%= link_to @recipe.user.nickname, "/users/#{@recipe.user_id}" %> さん</p>
   </div>
+  <p>レシピ：<%= @recipe.text %></p>
+</div>
+
+<% if current_user %>
+  <div class="comment_text">
+  <%= render partial: "like", locals: { recipe: @recipe } %>
+  <%= form_tag("/recipes/#{@recipe.id}/comments", method: :post) do %>
+    <textarea name="text" placeholder="コメントする"></textarea>
+    <input type="submit" value="送信">
+    <% end %>
+  </div>
+<% end %>
+
+<div class="comments">
+  <h3>＜コメント一覧＞</h3>
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <p>
+        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+        <%= comment.text %>
+      </p>
+    <% end %>
+  <% end %>
 </div>
