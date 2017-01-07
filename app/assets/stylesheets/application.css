@@ -73,7 +73,7 @@ footer {
 }
 
 .posts {
-  width: 80%;
+  width: 70%;
   margin:0 auto;
   background-color: white;
   text-align: center;
@@ -84,6 +84,7 @@ footer {
 
 .posts img {
   width: 90%;
+  height: 700px;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -189,6 +190,7 @@ footer {
 }
 
 .genre_search {
+  text-align: center;
   margin-top: 50px;
   display: block;
   width: 38%;
@@ -225,5 +227,126 @@ footer {
 }
 
 .ranking .posts {
+  margin-top: 30px;
+}
+
+.edit h3 {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.edit_image {
+  text-align: center;
+}
+
+.edit_form {
+  width: 53%;
+  margin: 0 auto;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.edit_form {
+  text-align: center;
+}
+
+.edit_form textarea {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.edit_form p {
+  text-align: center;
+}
+
+.edit_title {
+  margin-top: 40px;
+}
+
+.edit_text {
+  margin-top: 40px;
+}
+
+.edit_foods {
+  margin-top: 40px;
+}
+
+.edit_btn {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.update h3 {
+  margin-top: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.back {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.destroy h3 {
+  margin-top: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.create h3 {
+  margin-top: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.login_box {
+  width: 40%;
+  height: 450px;
+  margin: 0 auto;
+  margin-top: 40px;
+  border-style: solid;
+  border-color: #BF360C;
+  border-width: 5px;
+  border-radius: 20px;
+}
+
+.log_in {
+  text-align: center;
+}
+
+.log_in .field {
+  margin-top: 20px;
+}
+
+.login_btn {
+  margin-top: 30px;
+}
+
+.login_link {
+  margin-top: 30px;
+}
+
+.sign_box {
+  width: 40%;
+  height: 460px;
+  margin: 0 auto;
+  margin-top: 40px;
+  border-style: solid;
+  border-color: #BF360C;
+  border-width: 5px;
+  border-radius: 20px;
+}
+
+.sign_up {
+  text-align: center;
+}
+
+.sign_up .field {
+  margin-top: 20px;
+}
+
+.sign_btn {
   margin-top: 30px;
 }

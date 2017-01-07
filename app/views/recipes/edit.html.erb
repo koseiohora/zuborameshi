@@ -1,10 +1,25 @@
-<div class="contents row">
-    <%= form_tag("/recipes/#{@recipe.id}", method: :patch ) do %>
-      <h3>
-        編集する
-      </h3>
-      <input placeholder="Image Url" type="text" name="image" value="<%= @recipe.image %>" autofocus="true">
-      <textarea cols="30" name="text" placeholder="text" rows="10"><%= @recipe.text %></textarea>
-      <input type="submit" value="SENT">
-    <% end %>
-  </div>
+<div class="edit">
+  <h3>＜投稿を編集する＞</h3>
+    <%= form_tag("/recipes/#{@recipe.id}", method: :patch, multipart: true) do %>
+    <div class="edit_form">
+      <div class="edit_image">
+        <%= file_field_tag :image %>
+      </div>
+      <div class="edit_title">
+        <p>＊変更後の料理名をお書き下さい</p>
+        <textarea cols="60" name="text" placeholder="料理名" rows="3"><%= @recipe.title %></textarea>
+      </div>
+      <div class="edit_text">
+        <p>＊変更後のレシピをお書き下さい</p>
+        <textarea cols="60" name="text" placeholder="レシピ" rows="3"><%= @recipe.text %></textarea>
+      </div>
+      <div class="edit_foods">
+        <p>＊変更後の食材をお書き下さい</p>
+        <textarea cols="60" name="text" placeholder="#食材" rows="3"><%= @recipe.foods %></textarea>
+      </div>
+      <div class="edit_btn">
+        <input type="submit" value="編集する">
+      </div>
+    </div>
+  <% end %>
+</div>
