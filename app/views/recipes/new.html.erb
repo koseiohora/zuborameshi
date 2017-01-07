@@ -1,13 +1,33 @@
-<%= form_tag({action: :create}, multipart: true) do %>
-  <%= file_field_tag  :image %>
-  <%= text_field :recipe, :title %>
-  <%= text_field :recipe, :text %>
-  <%= text_field :recipe, :foods %>
+<div class="create">
+  <h3>＜レシピを投稿する＞</h3>
+  <div class="create_box">
+    <%= form_tag({action: :create}, multipart: true) do %>
+      <div class="create_img">
+        <%= file_field_tag  :image %>
+      </div>
 
-  <% ["ご飯","トースト","パスタ","お餅","その他"].each do |item| %>
-    <label>
-      <%= check_box_tag 'sample_form[genre][]', item %>
-      <%= item %>
-  <% end %>
-  <%= submit_tag "投稿する"  %>
-<% end %>
+      <div class="create_field">
+        <p>＊料理名をお書き下さい</p>
+        <%= text_field :recipe, :title, placeholder: "料理名"%>
+      </div>
+
+      <div class="create_field">
+        <p>＊レシピをお書き下さい</p>
+        <%= text_field :recipe, :text, placeholder: "レシピ" %>
+      </div>
+
+      <div class="create_field">
+        <p>＊食材をお書き下さい</p>
+        <%= text_field :recipe, :foods, placeholder: "#食材1 #食材2" %>
+      </div>
+
+      <div class="genre_p"><p>＊該当するジャンルを１つお選び下さい</p></div>
+      <% ["ご飯　　","トースト","パスタ　","お餅　　","その他　"].each do |item| %>
+        <div class="create_genre"><label><%= check_box_tag 'sample_form[genre][]', item %><%= item %></label></div>
+      <% end %>
+
+      <div class="create_btn"><%= submit_tag "投稿する"  %></div>
+    <% end %>
+
+  </div>
+</div>

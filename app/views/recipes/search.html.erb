@@ -1,6 +1,28 @@
 <% @recipes.each do |recipe| %>
-  <h2><%= recipe.title %></h2>
-  <%= image_tag recipe.image %>
-  <p><%= recipe.text %></p>
-  <span>投稿者 </span><%= recipe.user.nickname %>
+  <div class="posts">
+    <h2><%= recipe.title %></h2>
+    <p><%= recipe.foods %></p>
+    <li><%= link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get %></li>
+      <div class="img_user">
+        <%= image_tag recipe.image %>
+        <div class="more">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '編集', "/recipes/#{recipe.id}/edit", method: :get %></li>
+        <%end %>
+        </ul>
+        </div>
+
+        <div class="moremore">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '削除', "/recipes/#{recipe.id}", method: :delete %></li>
+        <%end %>
+        </ul>
+        </div>
+
+      <p>投稿者 <%= link_to recipe.user.nickname, "/users/#{recipe.user_id}" %> さん</p>
+      </div>
+  </div>
 <% end %>
+<%= paginate(@recipes) %>
