@@ -350,3 +350,39 @@ footer {
 .sign_btn {
   margin-top: 30px;
 }
+
+.create {
+  text-align: center;
+}
+
+.create_box {
+  width: 50%;
+  height: 750px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-style: solid;
+  border-color: #BF360C;
+  border-width: 5px;
+  border-radius: 20px;
+}
+
+.create_img {
+  margin-top: 30px;
+}
+
+.create_field {
+  margin-top: 30px;
+}
+
+.create_btn {
+  margin-top: 20px;
+}
+
+.create_genre {
+  margin-top: 10px;
+}
+
+.genre_p p {
+  font-size: 16px;
+  margin-top: 20px;
+}
