@@ -1,29 +1,33 @@
 <div class="user" >
   <h3><%= @nickname %>さんの投稿一覧</h3>
   <% @recipes.each do |recipe| %>
-    <div class="posts">
-      <h2><%= recipe.title %></h2>
-      <p><%= recipe.foods %></p>
+  <div class="posts">
+    <h2><%= recipe.title %></h2>
+    <p><%= recipe.foods %></p>
+    <div class="posts_">
+    <li class="time_recipe"><%= recipe.created_at.strftime('%Y年%m月%d日') %></li>
+    <li class="look_recipe"><%= link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get %></li>
+    </div>
       <div class="img_user">
         <%= image_tag recipe.image %>
-          <% if user_signed_in? && current_user.id == recipe.user_id %>
-            <div class="more">
-              <ul>
-                <li><%= link_to '編集', "/recipes/#{recipe.id}/edit", method: :get %></li>
-              </ul>
-            </div>
-          <% end %>
-          <% if user_signed_in? && current_user.id == recipe.user_id %>
-            <div class="moremore">
-              <ul>
-                <li><%= link_to '削除', "/recipes/#{recipe.id}", method: :delete %></li>
-              </ul>
-            </div>
-          <%end %>
-        <p>投稿者 <%= link_to recipe.user.nickname, "/users/#{recipe.user_id}" %> さん</p>
+        <div class="more">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '編集', "/recipes/#{recipe.id}/edit", method: :get %></li>
+        <%end %>
+        </ul>
+        </div>
+
+        <div class="moremore">
+        <ul>
+        <% if user_signed_in? && current_user.id == recipe.user_id %>
+          <li><%= link_to '削除', "/recipes/#{recipe.id}", method: :delete %></li>
+        <%end %>
+        </ul>
+        </div>
+
+      <p>投稿者 <%= link_to recipe.user.nickname, "/users/#{recipe.user_id}" %> さん</p>
       </div>
-      <p>レシピ：<%= recipe.text %></p>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <%= paginate(@recipes) %>

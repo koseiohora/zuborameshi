@@ -4,6 +4,10 @@
     <div class="posts">
       <h2><%= recipe.title %></h2>
       <p><%= recipe.foods %></p>
+      <div class="posts_">
+      <li class="time_recipe"><%= recipe.created_at.strftime('%Y年%m月%d日') %></li>
+      <li class="look_recipe"><%= link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get %></li>
+      </div>
       <div class="img_user">
         <%= image_tag recipe.image %>
           <% if user_signed_in? && current_user.id == recipe.user_id %>
@@ -22,7 +26,6 @@
           <%end %>
         <p>投稿者 <%= link_to recipe.user.nickname, "/users/#{recipe.user_id}" %> さん</p>
       </div>
-      <p>レシピ：<%= recipe.text %></p>
     </div>
   <% end %>
 </div>

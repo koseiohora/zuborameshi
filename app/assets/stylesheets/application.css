@@ -100,7 +100,7 @@ footer {
   line-height: auto;
   list-style: none;
   position: absolute;
-  top: 30px;
+  top: 50px;
   right: 80px;
 }
 
@@ -109,7 +109,7 @@ footer {
   line-height: auto;
   list-style: none;
   position: absolute;
-  top: 60px;
+  top: 80px;
   right: 80px;
 }
 
@@ -118,6 +118,12 @@ footer {
   position: absolute;
   bottom: 50px;
   right: 80px;
+}
+
+.posts_:after {
+  display: block;
+  content: "";
+  clear: both;
 }
 
 .posts a {
@@ -385,4 +391,13 @@ footer {
 .genre_p p {
   font-size: 16px;
   margin-top: 20px;
+}
+
+.time_recipe {
+  float: left;
+  margin-left: 40px;
+}
+
+.look_recipe {
+  float: right;
 }

@@ -1,6 +1,7 @@
 <div class="posts">
   <h2><%= @recipe.title %></h2>
   <p><%= @recipe.foods %></p>
+  <%= @recipe.created_at.strftime('%Y年%m月%d日') %>
   <div class="img_user">
     <%= image_tag @recipe.image %>
     <% if user_signed_in? && current_user.id == @recipe.user_id %>
@@ -8,16 +9,16 @@
         <ul>
           <li><%= link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get %></li>
         </ul>
-      <% end %>
       </div>
+      <% end %>
 
       <% if user_signed_in? && current_user.id == @recipe.user_id %>
       <div class="moremore">
         <ul>
           <li><%= link_to '削除', "/recipes/#{@recipe.id}", method: :delete %></li>
         </ul>
-      <%end %>
       </div>
+      <%end %>
     <p>投稿者 <%= link_to @recipe.user.nickname, "/users/#{@recipe.user_id}" %> さん</p>
   </div>
   <p>レシピ：<%= @recipe.text %></p>
@@ -25,7 +26,9 @@
 
 <% if current_user %>
   <div class="comment_text">
-  <%= render partial: "like", locals: { recipe: @recipe } %>
+  <div id="js-like-buttons">
+    <%= render partial: "recipes/like", locals: { recipe: @recipe, like: @like} %>
+  </div>
   <%= form_tag("/recipes/#{@recipe.id}/comments", method: :post) do %>
     <textarea name="text" placeholder="コメントする"></textarea>
     <input type="submit" value="送信">
