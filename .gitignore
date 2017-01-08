@@ -11,6 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+/path/to/file.txt
+*.swp
 
 config/secrets.yml
 config/*.yml
