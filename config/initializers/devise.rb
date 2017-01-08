@@ -273,7 +273,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   # config.omniauth :twitter,  Settings.twitter[:app_id],  Settings.twitter[:app_secret]
     config.omniauth( :twitter,
-                   ENV['FACEBOOK_APP_ID'],
-                   ENV['FACEBOOK_API_SECRET'],
+                   ENV['api_id'],
+                   ENV['api_secret'],
                   )
 end
